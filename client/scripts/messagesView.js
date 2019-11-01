@@ -8,6 +8,8 @@ var MessagesView = {
   },
 
   renderMessage: function renderMessage(message) {
-    this.$chats.prepend();
+    const cleanMessageText = Security.retrieveCleanMessageText(message);
+    const chatHTML = `<div class='message'>${cleanMessageText}</div>`;
+    this.$chats.prepend(chatHTML);
   },
 };
