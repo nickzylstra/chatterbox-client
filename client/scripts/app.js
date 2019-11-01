@@ -1,10 +1,10 @@
-var App = {
+let App = {
 
   $spinner: $('.spinner img'),
 
   username: 'anonymous',
 
-  initialize: function() {
+  initialize: function initialize() {
     App.username = window.location.search.substr(10);
 
     FormView.initialize();
@@ -14,10 +14,9 @@ var App = {
     // Fetch initial batch of messages
     App.startSpinner();
     App.fetch(App.stopSpinner);
-
   },
 
-  fetch: function(callback = ()=>{}) {
+  fetch: function fetch(callback = () => {}) {
     Parse.readAll((data) => {
       // examine the response from the server request:
       console.log(data);
@@ -26,13 +25,13 @@ var App = {
     });
   },
 
-  startSpinner: function() {
+  startSpinner: function startSpinner() {
     App.$spinner.show();
     FormView.setStatus(true);
   },
 
-  stopSpinner: function() {
+  stopSpinner: function stopSpinner() {
     App.$spinner.fadeOut('fast');
     FormView.setStatus(false);
-  }
+  },
 };
