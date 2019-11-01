@@ -5,6 +5,9 @@ var MessagesView = {
   },
 
   render: function render() {
+    window.Messages.forEach((message) => {
+      MessagesView.renderMessage(message);
+    });
   },
 
   renderMessage: function renderMessage(message) {

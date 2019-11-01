@@ -20,6 +20,8 @@ let App = {
     Parse.readAll((data) => {
       // examine the response from the server request:
       console.log(data);
+      window.Messages = data.results;
+      MessagesView.render();
 
       callback();
     });

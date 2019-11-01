@@ -1,4 +1,2 @@
-var Messages = {
-
-
+let Messages = {
 };
