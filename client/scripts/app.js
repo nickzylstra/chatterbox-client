@@ -18,7 +18,7 @@ var App = {
     Parse.readAll((data) => {
       // examine the response from the server request:
       console.log(data);
-      window.Messages = data.results;
+      window.Messages.messageList = data.results;
       callback();
     },
     // comment out this callback when server available
