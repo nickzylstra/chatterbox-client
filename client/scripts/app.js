@@ -11,10 +11,7 @@ var App = {
     RoomsView.initialize();
     MessagesView.initialize();
 
-    // Fetch initial batch of messages
-    App.startSpinner();
-    App.fetch(App.stopSpinner);
-    MessagesView.render();
+    App.refreshMessages();
   },
 
   fetch: function fetch(callback = () => {}) {
@@ -24,7 +21,7 @@ var App = {
       window.Messages = data.results;
       callback();
     },
-    // comment out this callback once connection available
+    // comment out this callback when server available
     () => {
       console.log('failed to retrieve messages from server, using local copy');
       callback();
@@ -39,5 +36,12 @@ var App = {
   stopSpinner: function stopSpinner() {
     App.$spinner.fadeOut('fast');
     FormView.setStatus(false);
+  },
+
+  refreshMessages: function refreshMessages() {
+    // Fetch messages and refresh DOM
+    App.startSpinner();
+    App.fetch(App.stopSpinner);
+    MessagesView.render();
   },
 };

@@ -9,7 +9,17 @@ var FormView = {
   handleSubmit: function(event) {
     // Stop the browser from submitting the form
     event.preventDefault();
-    
+
+    // create message object
+    const text = event.target.children[0].value;
+    const message = {text: text,
+      username: App.username};
+
+    // send message object to server
+    Parse.create(message, (data) => {
+      // TODO - what comes back???
+      App.refreshMessages();
+    });
     console.log('click!');
   },
 
