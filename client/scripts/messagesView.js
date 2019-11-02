@@ -11,9 +11,11 @@ var MessagesView = {
   },
 
   renderMessage: function renderMessage(message) {
-    const cleanMessageText = Security.retrieveCleanMessageText(message);
-    // {'objectId': 'X38oc0lFSw', 'username': 'anonymous', 'text': 'hello chatterbox', 'createdAt': '2019-11-02T00:32:34.255Z', 'updatedAt': '2019-11-02T00:32:34.255Z'}
-    const chatHTML = `<div class='chat'>${cleanMessageText}</div>`;
-    this.$chats.prepend(chatHTML);
+    /* const cleanMessageText = Security.retrieveCleanMessageText(message);
+    const messageHTML = `<div class='chat'>${cleanMessageText}</div>`; */
+    if (MessageView.validateMessageProps(message)) {
+      const messageHTML = MessageView.render(message);
+      this.$chats.prepend(messageHTML);
+    }
   },
 };
