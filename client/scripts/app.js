@@ -1,4 +1,4 @@
-let App = {
+var App = {
 
   $spinner: $('.spinner img'),
 
@@ -14,6 +14,7 @@ let App = {
     // Fetch initial batch of messages
     App.startSpinner();
     App.fetch(App.stopSpinner);
+    MessagesView.render();
   },
 
   fetch: function fetch(callback = () => {}) {
@@ -21,8 +22,11 @@ let App = {
       // examine the response from the server request:
       console.log(data);
       window.Messages = data.results;
-      MessagesView.render();
-
+      callback();
+    },
+    // comment out this callback once connection available
+    () => {
+      console.log('failed to retrieve messages from server, using local copy');
       callback();
     });
   },
