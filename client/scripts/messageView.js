@@ -1,6 +1,5 @@
 var MessageView = {
-
-  // {'objectId': 'X38oc0lFSw', 'username': 'anonymous', 'text': 'hello chatterbox', 'createdAt': '2019-11-02T00:32:34.255Z', 'updatedAt': '2019-11-02T00:32:34.255Z'}
+  // TODO - handle room names?
   validateMessageProps: function validateMessageProps(message) {
     return message.hasOwnProperty('objectId') &&
       message.hasOwnProperty('username') &&
@@ -13,7 +12,8 @@ var MessageView = {
   render: _.template(`
       <div class="chat">
         <div class="username"><%- username %></div>
-        <div class="chatText"><%- text %></div>
+        <div class="chat text"><%- text %></div>
+        <div class="chat timestamp"><%- updatedAt %></div>
       </div>
     `),
 

@@ -11,8 +11,6 @@ var MessagesView = {
   },
 
   renderMessage: function renderMessage(message) {
-    /* const cleanMessageText = Security.retrieveCleanMessageText(message);
-    const messageHTML = `<div class='chat'>${cleanMessageText}</div>`; */
     if (MessageView.validateMessageProps(message)) {
       const messageHTML = MessageView.render(message);
       this.$chats.prepend(messageHTML);
