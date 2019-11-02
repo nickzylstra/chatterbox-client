@@ -1,11 +1,10 @@
 var MessageView = {
-  // TODO - handle room names?
   validateMessageProps: function validateMessageProps(message) {
-    return message.hasOwnProperty('objectId') &&
-      message.hasOwnProperty('username') &&
-      message.hasOwnProperty('text') &&
-      message.hasOwnProperty('createdAt') &&
-      message.hasOwnProperty('updatedAt');
+    return Object.prototype.hasOwnProperty.call(message, 'objectId') &&
+      Object.prototype.hasOwnProperty.call(message, 'username') &&
+      Object.prototype.hasOwnProperty.call(message, 'text') &&
+      Object.prototype.hasOwnProperty.call(message, 'createdAt') &&
+      Object.prototype.hasOwnProperty.call(message, 'updatedAt');
   },
 
   // function for rendering message contents with escaped HTML

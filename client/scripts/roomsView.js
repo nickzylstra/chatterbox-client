@@ -7,6 +7,9 @@ var RoomsView = {
   },
 
   render: function() {
+    window.Rooms.roomList.forEach((room) => {
+
+    });
   },
 
   renderRoom: function renderRoom(room) {
