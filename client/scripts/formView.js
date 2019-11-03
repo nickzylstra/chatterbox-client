@@ -11,7 +11,9 @@ var FormView = {
     event.preventDefault();
 
     // create message object
-    const text = event.target.children[0].value;
+    const textNode = event.target.children[0];
+    const text = textNode.value;
+    textNode.value = '';
     const message = {text: text,
       username: App.username};
 
