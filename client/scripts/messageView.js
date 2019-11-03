@@ -14,6 +14,7 @@ var MessageView = {
   },
 
   // function for rendering message contents with escaped HTML
+  // TODO - why do spaces not display correctly?
   render: _.template(`
       <div class="chat">
         <div class="username"><%- username %></div>

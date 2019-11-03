@@ -19,7 +19,7 @@ var FormView = {
 
     // send message object to server
     Parse.create(message, (data) => {
-      // TODO - what comes back???
+      console.log(data);
       App.refreshMessages();
     });
     console.log('click!');

@@ -41,7 +41,9 @@ var App = {
   refreshMessages: function refreshMessages() {
     // Fetch messages and refresh DOM
     App.startSpinner();
-    App.fetch(App.stopSpinner);
-    MessagesView.render();
+    App.fetch(() => {
+      MessagesView.render();
+      App.stopSpinner();
+    });
   },
 };
