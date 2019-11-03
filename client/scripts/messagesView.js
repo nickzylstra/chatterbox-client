@@ -3,10 +3,8 @@ var MessagesView = {
   $chatsRefreshButton: $('#chatsRefreshButton'),
 
   initialize: function initialize() {
-    $(document).ready(function() {
-      MessagesView.$chatsRefreshButton.on('click', function(event) {
-        App.refreshMessages();
-      });
+    this.$chatsRefreshButton.on('click', function(event) {
+      App.refreshMessages();
     });
   },
 
