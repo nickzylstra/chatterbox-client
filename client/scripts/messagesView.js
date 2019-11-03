@@ -9,7 +9,7 @@ var MessagesView = {
   },
 
   render: function render() {
-    $chats = '';
+    this.$chats.empty();
     window.Messages.messageList.forEach((message) => {
       MessagesView.renderMessage(message);
     });

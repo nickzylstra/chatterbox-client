@@ -21,7 +21,7 @@ var App = {
       window.Messages.messageList = data.results;
       callback();
     },
-    // comment out this callback when server available
+    // can comment out this callback when server available
     () => {
       console.log('failed to retrieve messages from server, using local copy');
       callback();
