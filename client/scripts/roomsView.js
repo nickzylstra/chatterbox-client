@@ -15,7 +15,7 @@ var RoomsView = {
   renderRoom: function renderRoom(room) {
     const cleanRoom = Security.cleanRoomName(room);
     const roomHTML = `<option value="${cleanRoom}"></option>`;
-    this.$select.prepend(roomHTML);
+    this.$select.append(roomHTML);
   },
 
 };

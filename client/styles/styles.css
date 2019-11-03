@@ -73,6 +73,10 @@ form input[type=text] {
     color: blue;
 }
 
+.chat .roomname {
+    color: black;
+}
+
 .chat .timestamp {
     color: gray;
 }

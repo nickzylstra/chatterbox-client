@@ -11,6 +11,7 @@ var MessagesView = {
   },
 
   render: function render() {
+    $chats = '';
     window.Messages.messageList.forEach((message) => {
       MessagesView.renderMessage(message);
     });
@@ -18,8 +19,9 @@ var MessagesView = {
 
   renderMessage: function renderMessage(message) {
     if (MessageView.validateMessageProps(message)) {
+      MessageView.addRoomnameProp(message);
       const messageHTML = MessageView.render(message);
-      this.$chats.prepend(messageHTML);
+      this.$chats.append(messageHTML);
     }
   },
 };

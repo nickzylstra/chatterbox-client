@@ -7,11 +7,18 @@ var MessageView = {
       Object.prototype.hasOwnProperty.call(message, 'updatedAt');
   },
 
+  addRoomnameProp: function addRoomProp(message) {
+    if (!Object.prototype.hasOwnProperty.call(message, 'roomname')) {
+      message.roomname = '';
+    }
+  },
+
   // function for rendering message contents with escaped HTML
   render: _.template(`
       <div class="chat">
         <div class="username"><%- username %></div>
         <div class="chat text"><%- text %></div>
+        <div class="roomname">#<%- roomname %></div>
         <div class="chat timestamp"><%- updatedAt %></div>
       </div>
     `),
