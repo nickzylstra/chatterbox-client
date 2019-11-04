@@ -14,14 +14,9 @@ var FormView = {
     const textNode = event.target.children[0];
     const text = textNode.value;
     textNode.value = '';
-    const roomname = App.roomname;
     const message = {
       text: text,
-      username: App.username,
     };
-    if (roomname) {
-      message.roomname = roomname;
-    }
 
     // send message object to server
     App.sendMessage(message);

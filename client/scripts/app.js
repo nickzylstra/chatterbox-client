@@ -31,6 +31,11 @@ var App = {
 
   // send message object to server
   sendMessage: function sendMessage(message) {
+    message['username'] = App.username;
+    const roomname = App.roomname;
+    if (roomname) {
+      message['roomname'] = roomname;
+    }
     Parse.create(message, (data) => {
       console.log(data);
       App.refreshContent();
