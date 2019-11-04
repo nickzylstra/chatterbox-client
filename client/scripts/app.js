@@ -67,9 +67,8 @@ var App = {
   },
 
   getRoomFromUser: function getRoomFromUser() {
-    // TODO - need to ensure room name is safe before evaluating
-    const roomname = (prompt('What is the roomname you want to add?') || '');
-    return roomname;
+    const roomname = JSON.stringify(prompt('What is the roomname you want to add?'));
+    return roomname.slice(1, roomname.length - 1);
   },
 
   addUserRoom: function addUserRoom() {
