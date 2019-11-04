@@ -8,11 +8,11 @@ var MessagesView = {
     });
   },
 
-  render: function render(room) {
+  render: function render(roomname) {
     this.$chats.empty();
     window.Messages.messageList.forEach((message) => {
-      if (room) {
-        if (message.roomname === room) {
+      if (roomname) {
+        if (message.roomname === roomname) {
           MessagesView.renderMessage(message);
         }
       } else {

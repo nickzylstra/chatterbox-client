@@ -5,7 +5,7 @@ var RoomsView = {
 
   initialize: function() {
     this.$button.on('click', function(event) {
-      // App.addRoom();
+      App.addUserRoom();
     });
     this.$select.on('change', function(event) {
       const room = event.target.value;

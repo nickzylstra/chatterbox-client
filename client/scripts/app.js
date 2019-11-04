@@ -56,8 +56,21 @@ var App = {
     });
   },
 
-  addRoom: function addRoom(room) {
-    Rooms[room] = {'name': room};
+  addRoom: function addRoom(roomname) {
+    Rooms[roomname] = {'name': roomname};
+  },
+
+  getRoomFromUser: function getRoomFromUser() {
+    // TODO - need to ensure room name is safe before evaluating
+    const roomname = (prompt('What is the roomname you want to add?') || '');
+    return roomname;
+  },
+
+  addUserRoom: function addUserRoom() {
+    const roomname = App.getRoomFromUser();
+    App.addRoom(roomname);
+    App.refreshRooms();
+    MessagesView.render(roomname);
   },
 
   refreshRooms: function refreshRooms() {
@@ -68,14 +81,14 @@ var App = {
       }
       // TODO - need to ensure room name is safe before evaluating
       // const room = JSON.parse(message.roomname) || '';
-      const room = message.roomname;
-      App.addRoom(room);
+      const roomname = message.roomname;
+      App.addRoom(roomname);
     });
     RoomsView.render();
   },
 
-  refreshMessages: function refreshMessages(room = '') {
-    MessagesView.render(room);
+  refreshMessages: function refreshMessages(roomname = '') {
+    MessagesView.render(roomname);
   },
 
 };
