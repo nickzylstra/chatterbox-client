@@ -3,6 +3,7 @@ var App = {
   $spinner: $('.spinner img'),
 
   username: 'anonymous',
+  roomname: '',
 
   initialize: function initialize() {
     App.username = window.location.search.substr(10);
@@ -70,7 +71,9 @@ var App = {
     const roomname = App.getRoomFromUser();
     App.addRoom(roomname);
     App.refreshRooms();
-    MessagesView.render(roomname);
+    App.roomname = roomname;
+    // MessagesView.render(roomname);
+    App.refreshMessages();
   },
 
   refreshRooms: function refreshRooms() {
@@ -87,8 +90,8 @@ var App = {
     RoomsView.render();
   },
 
-  refreshMessages: function refreshMessages(roomname = '') {
-    MessagesView.render(roomname);
+  refreshMessages: function refreshMessages() {
+    MessagesView.render();
   },
 
 };

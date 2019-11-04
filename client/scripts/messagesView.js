@@ -8,8 +8,9 @@ var MessagesView = {
     });
   },
 
-  render: function render(roomname) {
+  render: function render() {
     this.$chats.empty();
+    const roomname = App.roomname;
     window.Messages.messageList.forEach((message) => {
       if (roomname) {
         if (message.roomname === roomname) {

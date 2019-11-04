@@ -8,8 +8,9 @@ var RoomsView = {
       App.addUserRoom();
     });
     this.$select.on('change', function(event) {
-      const room = event.target.value;
-      App.refreshMessages(room);
+      const roomname = event.target.value;
+      App.roomname = roomname;
+      App.refreshMessages();
     });
   },
 
