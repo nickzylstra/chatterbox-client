@@ -11,6 +11,7 @@ var MessagesView = {
   render: function render() {
     this.$chats.empty();
     const roomname = App.roomname;
+    const friends = App.friends;
     window.Messages.messageList.forEach((message) => {
       if (roomname) {
         if (message.roomname === roomname) {
@@ -19,6 +20,12 @@ var MessagesView = {
       } else {
         MessagesView.renderMessage(message);
       }
+    });
+    // TODO - is there a better place for this logic below?
+    const $usernames = $('.chat .username');
+    $usernames.click(function(event) {
+      const friendUsername = event.target.textContent;
+      App.toggleFriend(friendUsername);
     });
   },
 

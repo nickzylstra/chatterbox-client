@@ -4,6 +4,7 @@ var App = {
 
   username: 'anonymous',
   roomname: '',
+  friends: {},
 
   initialize: function initialize() {
     App.username = window.location.search.substr(10);
@@ -97,5 +98,14 @@ var App = {
   refreshMessages: function refreshMessages() {
     MessagesView.render();
   },
+
+  toggleFriend: function toggleFriend(friendUsername) {
+    const friends = this.friends;
+    if (friends[friendUsername]) {
+      delete friends[friendUsername];
+    } else {
+      friends[friendUsername] = friendUsername;
+    }
+  }
 
 };
