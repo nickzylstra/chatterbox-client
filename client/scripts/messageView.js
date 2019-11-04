@@ -1,4 +1,7 @@
 var MessageView = {
+
+  $username: $('.class .username'),
+
   validateMessageProps: function validateMessageProps(message) {
     return Object.prototype.hasOwnProperty.call(message, 'objectId') &&
       Object.prototype.hasOwnProperty.call(message, 'username') &&
