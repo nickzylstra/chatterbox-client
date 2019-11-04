@@ -3,14 +3,9 @@ var MessageView = {
     return Object.prototype.hasOwnProperty.call(message, 'objectId') &&
       Object.prototype.hasOwnProperty.call(message, 'username') &&
       Object.prototype.hasOwnProperty.call(message, 'text') &&
+      Object.prototype.hasOwnProperty.call(message, 'roomname') &&
       Object.prototype.hasOwnProperty.call(message, 'createdAt') &&
       Object.prototype.hasOwnProperty.call(message, 'updatedAt');
-  },
-
-  addRoomnameProp: function addRoomProp(message) {
-    if (!Object.prototype.hasOwnProperty.call(message, 'roomname')) {
-      message.roomname = '';
-    }
   },
 
   // function for rendering message contents with escaped HTML

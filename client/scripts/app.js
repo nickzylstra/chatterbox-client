@@ -50,15 +50,27 @@ var App = {
     // Fetch messages and refresh DOM
     App.startSpinner();
     App.fetch(() => {
-      MessagesView.render();
       App.refreshRooms();
+      MessagesView.render();
       App.stopSpinner();
     });
   },
 
-  refreshRooms: function refreshRooms () {
+  refreshRooms: function refreshRooms (room = '') {
     // update rooms selector with existing messages
-
+    Messages.messageList.forEach((message) => {
+      if (!Object.prototype.hasOwnProperty.call(message, 'roomname')) {
+        message.roomname = '';
+      }
+      // TODO - need to ensure room name is safe before evaluating
+      // const room = JSON.parse(message.roomname) || '';
+      const room = message.roomname;
+      App.addRoom(room);
+    });
     RoomsView.render();
+  },
+
+  addRoom: function addRoom(room) {
+    Rooms[room] = {'name': room};
   },
 };

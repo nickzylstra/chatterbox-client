@@ -4,26 +4,27 @@ var RoomsView = {
   $select: $('#rooms select'),
 
   initialize: function() {
-    this.$button.on('click', function(event) {
-      App.refreshContent();
+    /* this.$button.on('click', function(event) {
+      // App.addRoom();
     });
-    /* this.$select.on('change', function(event) {
-      const room;
-      this.renderRoom(room);
+    this.$select.on('change', function(event) {
+      // const room;
+      // App.refreshRooms(room)
     }); */
   },
 
   render: function() {
     this.$select.empty();
-    window.Rooms.roomList.forEach((room) => {
+    /* window.Rooms.roomList.forEach((room) => {
       renderRoom(room);
-    });
+    }); */
+    _.each(Rooms, (room) => this.renderRoom(room), this);
   },
 
   renderRoom: function renderRoom(room) {
     // const cleanRoom = Security.cleanRoomName(room);
     // const roomHTML = `<option value="${cleanRoom}"></option>`;
-    const roomHTML = _.template('<option value=<%- name %></option>')(room);
+    const roomHTML = _.template('<option value=<%- name %>><%- name %></option>')(room);
     this.$select.append(roomHTML);
   },
 
