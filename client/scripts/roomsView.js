@@ -4,13 +4,13 @@ var RoomsView = {
   $select: $('#rooms select'),
 
   initialize: function() {
-    /* this.$button.on('click', function(event) {
+    this.$button.on('click', function(event) {
       // App.addRoom();
     });
     this.$select.on('change', function(event) {
-      // const room;
-      // App.refreshRooms(room)
-    }); */
+      const room = event.target.value;
+      App.refreshMessages(room);
+    });
   },
 
   render: function() {

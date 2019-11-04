@@ -8,10 +8,16 @@ var MessagesView = {
     });
   },
 
-  render: function render() {
+  render: function render(room) {
     this.$chats.empty();
     window.Messages.messageList.forEach((message) => {
-      MessagesView.renderMessage(message);
+      if (room) {
+        if (message.roomname === room) {
+          MessagesView.renderMessage(message);
+        }
+      } else {
+        MessagesView.renderMessage(message);
+      }
     });
   },
 

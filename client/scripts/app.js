@@ -51,12 +51,16 @@ var App = {
     App.startSpinner();
     App.fetch(() => {
       App.refreshRooms();
-      MessagesView.render();
+      App.refreshMessages();
       App.stopSpinner();
     });
   },
 
-  refreshRooms: function refreshRooms (room = '') {
+  addRoom: function addRoom(room) {
+    Rooms[room] = {'name': room};
+  },
+
+  refreshRooms: function refreshRooms() {
     // update rooms selector with existing messages
     Messages.messageList.forEach((message) => {
       if (!Object.prototype.hasOwnProperty.call(message, 'roomname')) {
@@ -70,7 +74,8 @@ var App = {
     RoomsView.render();
   },
 
-  addRoom: function addRoom(room) {
-    Rooms[room] = {'name': room};
+  refreshMessages: function refreshMessages(room = '') {
+    MessagesView.render(room);
   },
+
 };
