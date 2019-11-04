@@ -8,17 +8,15 @@ var MessagesView = {
     });
   },
 
-  render: function render() {
+  render: function render(roomname, friends) {
     this.$chats.empty();
-    const roomname = App.roomname;
-    const friends = App.friends;
     window.Messages.messageList.forEach((message) => {
       if (roomname) {
         if (message.roomname === roomname) {
-          MessagesView.renderMessage(message);
+          MessagesView.renderMessage(message, friends);
         }
       } else {
-        MessagesView.renderMessage(message);
+        MessagesView.renderMessage(message, friends);
       }
     });
     // TODO - is there a better place for this logic below?
@@ -29,10 +27,16 @@ var MessagesView = {
     });
   },
 
-  renderMessage: function renderMessage(message) {
+  renderMessage: function renderMessage(message, friends) {
     if (MessageView.validateMessageProps(message)) {
       const messageHTML = MessageView.render(message);
       this.$chats.append(messageHTML);
+      // TODO - do more efficiently elsewhere
+      const $element = this.$chats.children().last().children('.username');
+      const username = $element[0].textContent;
+      if (friends[username]) {
+        $element.addClass('friend');
+      }
     }
   },
 };

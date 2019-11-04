@@ -96,7 +96,7 @@ var App = {
   },
 
   refreshMessages: function refreshMessages() {
-    MessagesView.render();
+    MessagesView.render(App.roomname, App.friends);
   },
 
   toggleFriend: function toggleFriend(friendUsername) {
@@ -106,6 +106,7 @@ var App = {
     } else {
       friends[friendUsername] = friendUsername;
     }
+    App.refreshMessages();
   }
 
 };
