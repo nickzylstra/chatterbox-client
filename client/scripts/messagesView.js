@@ -4,7 +4,7 @@ var MessagesView = {
 
   initialize: function initialize() {
     this.$chatsRefreshButton.on('click', function(event) {
-      App.refreshMessages();
+      App.refreshContent();
     });
   },
 

@@ -5,7 +5,7 @@ var RoomsView = {
 
   initialize: function() {
     this.$button.on('click', function(event) {
-      App.refreshMessages();
+      App.refreshContent();
     });
     /* this.$select.on('change', function(event) {
       const room;
@@ -14,14 +14,16 @@ var RoomsView = {
   },
 
   render: function() {
+    this.$select.empty();
     window.Rooms.roomList.forEach((room) => {
-
+      renderRoom(room);
     });
   },
 
   renderRoom: function renderRoom(room) {
-    const cleanRoom = Security.cleanRoomName(room);
-    const roomHTML = `<option value="${cleanRoom}"></option>`;
+    // const cleanRoom = Security.cleanRoomName(room);
+    // const roomHTML = `<option value="${cleanRoom}"></option>`;
+    const roomHTML = _.template('<option value=<%- name %></option>')(room);
     this.$select.append(roomHTML);
   },
 

@@ -11,7 +11,7 @@ var App = {
     RoomsView.initialize();
     MessagesView.initialize();
 
-    App.refreshMessages();
+    App.refreshContent();
   },
 
   fetch: function fetch(callback = () => {}) {
@@ -38,7 +38,7 @@ var App = {
     FormView.setStatus(false);
   },
 
-  refreshMessages: function refreshMessages() {
+  refreshContent: function refreshContent() {
     // Fetch messages and refresh DOM
     App.startSpinner();
     App.fetch(() => {
