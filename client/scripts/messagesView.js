@@ -17,6 +17,7 @@ var MessagesView = {
 
   renderMessage: function renderMessage(message) {
     if (MessageView.validateMessageProps(message)) {
+      // TODO - move next line work to app.js?
       MessageView.addRoomnameProp(message);
       const messageHTML = MessageView.render(message);
       this.$chats.append(messageHTML);

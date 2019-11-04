@@ -18,11 +18,7 @@ var FormView = {
       username: App.username};
 
     // send message object to server
-    Parse.create(message, (data) => {
-      console.log(data);
-      App.refreshContent();
-    });
-    console.log('click!');
+    App.sendMessage(message);
   },
 
   setStatus: function(active) {

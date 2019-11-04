@@ -28,6 +28,14 @@ var App = {
     });
   },
 
+  // send message object to server
+  sendMessage: function sendMessage(message) {
+    Parse.create(message, (data) => {
+      console.log(data);
+      App.refreshContent();
+    });
+  },
+
   startSpinner: function startSpinner() {
     App.$spinner.show();
     FormView.setStatus(true);
@@ -43,7 +51,14 @@ var App = {
     App.startSpinner();
     App.fetch(() => {
       MessagesView.render();
+      App.refreshRooms();
       App.stopSpinner();
     });
+  },
+
+  refreshRooms: function refreshRooms () {
+    // update rooms selector with existing messages
+
+    RoomsView.render();
   },
 };
